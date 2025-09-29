@@ -1,0 +1,51 @@
+# Compiled binary
+terraform-provider-random_ulid
+terraform-provider-random_ulid_*
+
+# Go build artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# IDE files
+.idea/
+*.swp
+*.swo
+*~
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test and coverage files
+*.test
+*.prof
+coverage.txt
+coverage.html
+
+# Build directories
+dist/
+build/
+
+# goreleaser
+.goreleaser.yml
+dist/
