@@ -1,8 +1,8 @@
 # Terraform Random ULID Provider
 
-[![CI](https://github.com/lambdalisue/terraform-provider-random_ulid/actions/workflows/ci.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-random_ulid/actions/workflows/ci.yml)
-[![Release](https://github.com/lambdalisue/terraform-provider-random_ulid/actions/workflows/release.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-random_ulid/actions/workflows/release.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/lambdalisue/terraform-provider-random_ulid)](https://goreportcard.com/report/github.com/lambdalisue/terraform-provider-random_ulid)
+[![CI](https://github.com/lambdalisue/terraform-provider-random-ulid/actions/workflows/ci.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-random-ulid/actions/workflows/ci.yml)
+[![Release](https://github.com/lambdalisue/terraform-provider-random-ulid/actions/workflows/release.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-random-ulid/actions/workflows/release.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/lambdalisue/terraform-provider-random-ulid)](https://goreportcard.com/report/github.com/lambdalisue/terraform-provider-random-ulid)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Terraform provider for generating ULIDs (Universally Unique Lexicographically Sortable Identifiers).
@@ -39,8 +39,8 @@ provider "random_ulid" {}
 ### Building from Source
 
 ```bash
-git clone https://github.com/lambdalisue/terraform-provider-random_ulid.git
-cd terraform-provider-random_ulid
+git clone https://github.com/lambdalisue/terraform-provider-random-ulid.git
+cd terraform-provider-random-ulid
 make install
 ```
 

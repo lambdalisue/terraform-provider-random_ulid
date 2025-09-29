@@ -1,4 +1,4 @@
-module github.com/lambdalisue/terraform-provider-random_ulid
+module github.com/lambdalisue/terraform-provider-random-ulid
 
 go 1.25.1
 
