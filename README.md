@@ -1,5 +1,10 @@
 # Terraform Random ULID Provider
 
+[![CI](https://github.com/lambdalisue/terraform-provider-random_ulid/actions/workflows/ci.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-random_ulid/actions/workflows/ci.yml)
+[![Release](https://github.com/lambdalisue/terraform-provider-random_ulid/actions/workflows/release.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-random_ulid/actions/workflows/release.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/lambdalisue/terraform-provider-random_ulid)](https://goreportcard.com/report/github.com/lambdalisue/terraform-provider-random_ulid)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A Terraform provider for generating ULIDs (Universally Unique Lexicographically Sortable Identifiers).
 
 ## What is ULID?
@@ -161,6 +166,40 @@ Then run your Terraform commands with `TF_LOG=DEBUG` for detailed logging.
 
 This project is licensed under the MIT License.
 
+## CI/CD
+
+This project uses simple GitHub Actions workflows:
+
+- **CI**: Runs on every push and pull request
+  - Code formatting check
+  - `go vet` for potential issues
+  - Unit tests
+  - Build verification
+
+- **Release**: Triggered by version tags (v*)
+  - Automated cross-platform builds with GoReleaser
+  - GitHub release with changelog
+
+### Creating a Release
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+GoReleaser will automatically create binaries for Linux, macOS, and Windows.
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Development Setup
+
+1. Fork and clone the repository
+2. Install Go 1.20 or later
+3. Run `go mod download` to fetch dependencies
+4. Make your changes
+5. Run `make test` to ensure tests pass
+6. Submit a pull request
+
+All pull requests must pass CI checks before merging.

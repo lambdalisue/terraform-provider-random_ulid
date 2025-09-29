@@ -45,7 +45,3 @@ coverage.html
 # Build directories
 dist/
 build/
-
-# goreleaser
-.goreleaser.yml
-dist/
