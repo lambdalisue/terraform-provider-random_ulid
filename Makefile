@@ -1,4 +1,4 @@
-.PHONY: build install test fmt clean
+.PHONY: build install test fmt clean generate
 
 HOSTNAME=lambdalisue
 NAMESPACE=terraform
@@ -26,3 +26,6 @@ clean:
 	rm -rf examples/.terraform
 	rm -f examples/.terraform.lock.hcl
 	rm -f examples/terraform.tfstate*
+
+generate:
+	go generate ./...

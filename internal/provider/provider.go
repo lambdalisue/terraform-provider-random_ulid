@@ -1,3 +1,6 @@
+// Package provider implements the ULID Terraform provider.
+//
+//go:generate tfplugindocs generate --provider-name ulid
 package provider
 
 import (
