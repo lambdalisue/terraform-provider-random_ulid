@@ -1,4 +1,4 @@
-# Terraform Random ULID Provider
+# Terraform ULID Provider
 
 [![CI](https://github.com/lambdalisue/terraform-provider-ulid/actions/workflows/ci.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-ulid/actions/workflows/ci.yml)
 [![Release](https://github.com/lambdalisue/terraform-provider-ulid/actions/workflows/release.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-ulid/actions/workflows/release.yml)
