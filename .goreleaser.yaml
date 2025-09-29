@@ -34,14 +34,19 @@ changelog:
       - Merge pull request
       - Merge branch
 
-# Uncomment to enable GPG signing for Terraform Registry verification
-# signs:
-#   - artifacts: checksum
-#     args:
-#       - "--batch"
-#       - "--local-user"
-#       - "{{ .Env.GPG_FINGERPRINT }}"
-#       - "--output"
-#       - "${signature}"
-#       - "--detach-sign"
-#       - "${artifact}"
+# GPG signing for Terraform Registry verification
+signs:
+  - artifacts: checksum
+    args:
+      - "--batch"
+      - "--local-user"
+      - "{{ .Env.GPG_FINGERPRINT }}"
+      - "--output"
+      - "${signature}"
+      - "--detach-sign"
+      - "${artifact}"
+
+# Include terraform-registry-manifest.json in the release
+release:
+  extra_files:
+    - glob: terraform-registry-manifest.json
