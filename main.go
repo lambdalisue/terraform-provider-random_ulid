@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
-	"github.com/lambdalisue/terraform-provider-random-ulid/internal/provider"
+	"github.com/lambdalisue/terraform-provider-ulid/internal/provider"
 )
 
 // These variables are set by goreleaser during build

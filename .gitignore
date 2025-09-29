@@ -1,6 +1,6 @@
 # Compiled binary
-terraform-provider-random_ulid
-terraform-provider-random_ulid_*
+terraform-provider-ulid
+terraform-provider-ulid_*
 
 # Go build artifacts
 *.exe

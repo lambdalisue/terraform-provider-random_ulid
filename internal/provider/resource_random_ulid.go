@@ -13,7 +13,7 @@ import (
 
 func resourceRandomULID() *schema.Resource {
 	return &schema.Resource{
-		Description: "The resource `random_ulid` generates a random ULID (Universally Unique Lexicographically Sortable Identifier).",
+		Description: "The resource `ulid_random` generates a random ULID (Universally Unique Lexicographically Sortable Identifier).",
 
 		CreateContext: resourceRandomULIDCreate,
 		ReadContext:   resourceRandomULIDRead,

@@ -17,18 +17,18 @@ func TestAccResourceRandomULID(t *testing.T) {
 				Config: testAccResourceRandomULIDConfig,
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestMatchResourceAttr(
-						"random_ulid.test", "id", regexp.MustCompile("^[0-9A-Z]{26}$")),
+						"ulid_random.test", "id", regexp.MustCompile("^[0-9A-Z]{26}$")),
 					resource.TestCheckResourceAttrSet(
-						"random_ulid.test", "timestamp"),
+						"ulid_random.test", "timestamp"),
 					resource.TestCheckResourceAttrSet(
-						"random_ulid.test", "randomness"),
+						"ulid_random.test", "randomness"),
 				),
 			},
 			{
 				Config: testAccResourceRandomULIDWithPrefixConfig,
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestMatchResourceAttr(
-						"random_ulid.test_prefix", "id", regexp.MustCompile("^test_[0-9A-Z]{26}$")),
+						"ulid_random.test_prefix", "id", regexp.MustCompile("^test_[0-9A-Z]{26}$")),
 				),
 			},
 		},
@@ -36,11 +36,11 @@ func TestAccResourceRandomULID(t *testing.T) {
 }
 
 const testAccResourceRandomULIDConfig = `
-resource "random_ulid" "test" {}
+resource "ulid_random" "test" {}
 `
 
 const testAccResourceRandomULIDWithPrefixConfig = `
-resource "random_ulid" "test_prefix" {
+resource "ulid_random" "test_prefix" {
   prefix = "test_"
 }
 `
@@ -50,7 +50,7 @@ func testAccPreCheck(t *testing.T) {
 }
 
 var testAccProviderFactories = map[string]func() (*schema.Provider, error){
-	"random_ulid": func() (*schema.Provider, error) {
+	"ulid": func() (*schema.Provider, error) {
 		return New("test")(), nil
 	},
 }

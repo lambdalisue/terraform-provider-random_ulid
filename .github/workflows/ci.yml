@@ -39,5 +39,5 @@ jobs:
 
       - name: Build provider
         run: |
-          go build -o terraform-provider-random_ulid
-          ./terraform-provider-random_ulid 2>&1 | grep -q "This binary is a plugin" || exit 1
+          go build -o terraform-provider-ulid
+          ./terraform-provider-ulid 2>&1 | grep -q "This binary is a plugin" || exit 1

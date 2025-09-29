@@ -1,22 +1,22 @@
 terraform {
   required_providers {
-    random_ulid = {
-      source  = "lambdalisue/random_ulid"
+    ulid = {
+      source  = "lambdalisue/ulid"
       version = "~> 0.1.0"
     }
   }
 }
 
 # Simple ULID generation
-resource "random_ulid" "example" {}
+resource "ulid_random" "example" {}
 
 # ULID with prefix
-resource "random_ulid" "with_prefix" {
+resource "ulid_random" "with_prefix" {
   prefix = "user_"
 }
 
 # Using keepers to control regeneration
-resource "random_ulid" "with_keepers" {
+resource "ulid_random" "with_keepers" {
   keepers = {
     # New ULID will be generated when this value changes
     deployment_id = "v1.0.0"
@@ -25,7 +25,7 @@ resource "random_ulid" "with_keepers" {
 }
 
 # Generate multiple ULIDs
-resource "random_ulid" "multiple" {
+resource "ulid_random" "multiple" {
   count  = 3
   prefix = "item_${count.index}_"
 }
@@ -33,20 +33,20 @@ resource "random_ulid" "multiple" {
 # Outputs
 output "simple_ulid" {
   description = "Generated simple ULID"
-  value       = random_ulid.example.id
+  value       = ulid_random.example.id
 }
 
 output "ulid_with_prefix" {
   description = "ULID with prefix"
-  value       = random_ulid.with_prefix.id
+  value       = ulid_random.with_prefix.id
 }
 
 output "ulid_timestamp" {
   description = "ULID timestamp in milliseconds"
-  value       = random_ulid.example.timestamp
+  value       = ulid_random.example.timestamp
 }
 
 output "multiple_ulids" {
   description = "Multiple ULIDs"
-  value       = random_ulid.multiple[*].id
+  value       = ulid_random.multiple[*].id
 }

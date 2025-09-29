@@ -12,7 +12,7 @@ func New(version string) func() *schema.Provider {
 		return &schema.Provider{
 			Schema: map[string]*schema.Schema{},
 			ResourcesMap: map[string]*schema.Resource{
-				"random_ulid": resourceRandomULID(),
+				"random": resourceRandomULID(),
 			},
 			DataSourcesMap:       map[string]*schema.Resource{},
 			ConfigureContextFunc: configure,

@@ -1,8 +1,8 @@
 # Terraform Random ULID Provider
 
-[![CI](https://github.com/lambdalisue/terraform-provider-random-ulid/actions/workflows/ci.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-random-ulid/actions/workflows/ci.yml)
-[![Release](https://github.com/lambdalisue/terraform-provider-random-ulid/actions/workflows/release.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-random-ulid/actions/workflows/release.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/lambdalisue/terraform-provider-random-ulid)](https://goreportcard.com/report/github.com/lambdalisue/terraform-provider-random-ulid)
+[![CI](https://github.com/lambdalisue/terraform-provider-ulid/actions/workflows/ci.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-ulid/actions/workflows/ci.yml)
+[![Release](https://github.com/lambdalisue/terraform-provider-ulid/actions/workflows/release.yml/badge.svg)](https://github.com/lambdalisue/terraform-provider-ulid/actions/workflows/release.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/lambdalisue/terraform-provider-ulid)](https://goreportcard.com/report/github.com/lambdalisue/terraform-provider-ulid)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Terraform provider for generating ULIDs (Universally Unique Lexicographically Sortable Identifiers).
@@ -26,21 +26,21 @@ Example ULID: `01ARZ3NDEKTSV4RRFFQ69G5FAV`
 ```hcl
 terraform {
   required_providers {
-    random_ulid = {
-      source  = "lambdalisue/random_ulid"
+    ulid = {
+      source  = "lambdalisue/ulid"
       version = "~> 0.1.0"
     }
   }
 }
 
-provider "random_ulid" {}
+provider "ulid" {}
 ```
 
 ### Building from Source
 
 ```bash
-git clone https://github.com/lambdalisue/terraform-provider-random-ulid.git
-cd terraform-provider-random-ulid
+git clone https://github.com/lambdalisue/terraform-provider-ulid.git
+cd terraform-provider-ulid
 make install
 ```
 
@@ -49,17 +49,17 @@ make install
 ### Basic Example
 
 ```hcl
-resource "random_ulid" "example" {}
+resource "ulid_random" "example" {}
 
 output "ulid" {
-  value = random_ulid.example.id
+  value = ulid_random.example.id
 }
 ```
 
 ### With Prefix
 
 ```hcl
-resource "random_ulid" "user_id" {
+resource "ulid_random" "user_id" {
   prefix = "user_"
 }
 
@@ -71,7 +71,7 @@ resource "random_ulid" "user_id" {
 Keepers allow you to force regeneration of the ULID when specific values change:
 
 ```hcl
-resource "random_ulid" "deployment" {
+resource "ulid_random" "deployment" {
   keepers = {
     version = var.app_version
     region  = var.deployment_region
@@ -83,19 +83,19 @@ resource "random_ulid" "deployment" {
 ### Multiple ULIDs
 
 ```hcl
-resource "random_ulid" "items" {
+resource "ulid_random" "items" {
   count  = 5
   prefix = "item_"
 }
 
 output "item_ids" {
-  value = random_ulid.items[*].id
+  value = ulid_random.items[*].id
 }
 ```
 
 ## Resource Arguments
 
-### `random_ulid`
+### `ulid_random`
 
 #### Arguments
 
@@ -113,13 +113,13 @@ output "item_ids" {
 Existing ULIDs can be imported:
 
 ```bash
-terraform import random_ulid.example 01ARZ3NDEKTSV4RRFFQ69G5FAV
+terraform import ulid_random.example 01ARZ3NDEKTSV4RRFFQ69G5FAV
 ```
 
 Or with a prefix:
 
 ```bash
-terraform import random_ulid.example user_01ARZ3NDEKTSV4RRFFQ69G5FAV
+terraform import ulid_random.example user_01ARZ3NDEKTSV4RRFFQ69G5FAV
 ```
 
 ## Development
@@ -154,7 +154,7 @@ For debugging the provider during development, you can use Terraform's provider 
 ```hcl
 provider_installation {
   dev_overrides {
-    "lambdalisue/random_ulid" = "/path/to/your/built/provider"
+    "lambdalisue/ulid" = "/path/to/your/built/provider"
   }
   direct {}
 }
